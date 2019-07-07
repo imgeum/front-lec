@@ -3,26 +3,28 @@
 ### 블록 레벨(level) 요소와 인라인(inline) 요소
 
 1. 블록
-   1. div, h1, p
-   2. 사용 가능한 최대 가로 너비를 사용
-   3. (width: 100%; height: 0;)으로 시작
-   4. 수직으로 쌓임
-   5. margin, padding | 위, 아래, 좌, 우 사용 가능
-   6. layout
-2. 인라인요소
-   1. span, img
-   2. 필요한 만큼의 너비를 사용
-   3. 크기를 지정할 수 없음
-   4. (width: 0; height: 0;)으로 시작
-   5. margin, padding, 위, 아래 사용 불가
-   6. text
+   1. { display: block;}
+   2. div, h1, p
+   3. 사용 가능한 최대 가로 너비를 사용
+   4. (width: 100%; height: 0;)으로 시작
+   5. 수직으로 쌓임
+   6. margin, padding | 위, 아래, 좌, 우 사용 가능
+   7. layout
+2. 인라인요소 
+   1. display: inline
+   2. span, img
+   3. 필요한 만큼의 너비를 사용
+   4. 크기를 지정할 수 없음
+   5. (width: 0; height: 0;)으로 시작
+   6. margin, padding, 위, 아래 사용 불가
+   7. text
 
 ### HTML tag 종류
 강의 블로그
 https://heropy.blog/2019/05/26/html-elements/
 참고자료
-https://developer.mozilla.org/ko/docs/Web/HTML
-[카피할 사이트 - 깃허브 홈페이지 카피](https://heropcode.github.io/GitHub-Responsive)
+[MDN](https://developer.mozilla.org/ko/docs/Web/HTML)
+[깃허브 홈페이지 카피 예시](https://heropcode.github.io/GitHub-Responsive)
 
 1. html
    1. lang
@@ -87,6 +89,7 @@ https://developer.mozilla.org/ko/docs/Web/HTML
       1. 정렬이 안된 리스트
    3. li(list)
       1. 리스트 요소
+   4. 영역을 설정하는 요소들은 대부분 Block 요소이다.
 2. header
    1. 소개나 탐색을 돕는것의 그룹
    2. 후손으로 header, footer 불가
@@ -113,8 +116,161 @@ https://developer.mozilla.org/ko/docs/Web/HTML
       1. 매거진/기사, 블로그 등
    3. 일반적으로 h1 ~ h6을 포함하여 식별
    4. time, datetime 속성으로 작성
+   5. article 내 section 가능
 7. section
    1. [MDN](https://developer.mozilla.org/ko/docs/Web/HTML/Element/section)
    2. 문서의 일반적인 영역 설정
+   3. 일반적으로 h1 ~ h6을 포함하여 식별
+   4. section 내 article 가능
+   5. div와 차이점
+      1. div
+         1. 의미 x, 
+      2. section
+         1. 의미 o, 제목
+      3. article
+         1. 의미 o, 독립(제목)
+8. aside
+   1. 문서의 별도 콘텐츠 설정
+      1. 광고, 기타 링크 등의 사이바(Side bar) 설정ㅏㅇ고.
+   2. 오른쪽, 아래쪽의 광고.
+9. nav
+   1. navigation
+   2. 다른 페이지 링크를 제공하는 영역. 메뉴
+   3. Home, About, Contact, 목차, 색인 등을 설정
+   4. ol, ul
+10. address
+    1. <body>, <article>, <footer> 등에서 연락처 정보를 제공하기 위해 포함하여 사용
+11. div
+    1. Division
+    2. 본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정
+
+
+##### 문자 컨텐츠
+1. ol, ul, li
+   1. ordered list, unordered list, list
+   2. li는 단독 사용 불가. ol이나 ul의 자식으로 포함되어야 함
+   3. ol의 항목 순서는 중요도 의미할 수 있음
+2. dl, dt, dd
+   1. Description List(집합), Description Term(용어), Description Details(정의)
+   2. dl은 dt, dd만을 포함해야 함
+   3. key/value 형태를 표시할 때 유용함.
+   4. 스타일링의 한계 ->  스타일링이 편리한 ul, ol, li로 대체
+3. p
+   1. paragraph
+   2. 하나의 문단을 설정.
+   3. 정보통신보조기기 등에서 다음 문단으로 넘어갈 수 있는 단축키 제공.
+4. hr
+   1. Horizontal Rule
+   2. empty tag
+   3. 문단의 분리(주제에 의한)를 위해 설정
+   4. 수평선으로 표시되나 표현적인 관점이 아닌 의미적인 관점으로만 사용해야 함.
+5. pre
+   1. Preformatted Text
+   2. 서식이 미리 지정된 텍스트를 설정
+   3. 텍스트의 공백과 줄바꿈을 유지하여 표시 가능
+   4. Monoscope 글꼴 계열로 표시됨
+      1. 글자의 가로 너비(width)가 동일함
+6. blockquote
+   1. Block Quotation
+   2. 일반적인 인용문을 설정
+   3. cite='url'
+
+인라인 요소
+1. a
+   1. Anchor
+   2. 다른 URL로 연결할 수 있는 하이퍼링크를 설정
+   3. 속성
+      1. href - url
+         1. hashtag(#)을 사용하여 페이지 내부의 위치로 이동 가능
+      2. target - _self, _blank
+      3. rel - license, prev, next, etc
+      4. download - bool
+2. abbr
+   1. Abberivation
+   2. 약어
+   3. title 속성을 사용하여 전체 글자나 설명을 제공
+3. B, EM, Strong, I
+   1. b
+      1. Bring Attention (Bold)
+      2. 문체가 다른 글자의 범위를 지정
+      3. 특별한 의미를 가지지 않음
+      4. 읽기 흐름에 도움을 주는 경우
+      5. 글자가 두껍게(Bold) 표시됨
+   2. mark
+      1. Mark Text
+      2. 사용자의 관심을 끌기 위해 하이라이팅할 때 사용
+      3. 글자 배경이 노란색으로 표시됨
+   3. em
+      1. Emphasis
+      2. 단순한 의미 강조를 표시
+      3. 중첩 가능, 중첩될수록 강조 의미가 강해짐
+      4. 정보통신보조기기 등에서 구두 강조로 발음됨
+      5. 이탤릭체(Italic type)로 표시
+   4. strong
+      1. Strong Importance
+      2. 의미의 중요성을 나타내기 위해 사용
+      3. 강조 != 중요성
+      4. 기본적으로 글자가 두껍게 표시됨
+   5. i
+      1. 표현할 수 있는 적합한 의미가 아닌 경우 사용
+      2. 평범한 글자와 구분(아이콘, 특수기호 등)하기 위해 사용
+      3. 기본적으로 이탤릭체(Italic type)로 표시됨
+4. dfn
+   1. Defenition
+   2. 용어를 정의할 때 사용
+5. cite
+   1. 창작물에 대한 참조를 설정
+   2. 책, 논문, 영화 등의 제목
+   3. 기본적으로 이탤릭체로 표시됨
+6. q
+   1. Inline Quotation
+   2. 짧은 인용문을 설정
+   3. 긴 인용문은 blockquote를 사용
+   4. 속성
+      1. cite - url
+7. u
+   1. Underline
+   2. 밑줄이 있는 글자를 설정
+   3. 순수하게 꾸미는 용도의 요소로 사용
+   4. <a>와 헷갈릴 수 있는 위치에서 사용하지 않도록 주의
+   5. <span style="text-decoration: underline;">을 활용할 수 있으면 사용 권장 X
+8. code
+   1. Inline Code
+   2. 컴퓨터 코드 범위를 설정
+   3. 기본적으로 고정폭(Monospace) 글꼴 계열로 표시됨
+9.  kbd
+    1. Keyboard Input
+    2. 키보드에서 사용자 입력을 나타내는 텍스트 범위를 설정
+10. sup, sub
+    1.  Superscripted text(위 첨자), Subscript text(아래 첨자) 
+11. time
+    1. 날짜, 시간을 나타내기 위한 목적
+    2. datetime - Date(yyyy-mm-dd)
+    3. not supported IE
+12. span
+    1. 본질적으로 아무것도 나타내지 않는 콘텐츠 영역을 설정
+    2. div, span
+       1. div
+          1. 블록, 의미 x
+       2. span
+          1. 인라인, 의미 x
+13. br
+    1. break
+    2. 줄바꿈을 설정
+    3. 간격을 넓히기 위해 <br/>을 여러번 사용하지 말고 css를 이용하여 <br/>의 속성을 바꿔야 한다. 
+
+##### 수정
+1. del
+   1. delete
+   2. 삭제된(변경된) 텍스트의 범위를 지정
+   3. 속성
+      1. cite - URI - 리소스의 URI
+      2. datetime - Date - 변경시간
+2. ins
+   1. insert
+   2. 새로 추가된(변경된) 텍스트의 범위를 지정
+   3. 속성
+      1. cite - URI
+      2. datetime - Date
 
 
