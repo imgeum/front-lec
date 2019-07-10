@@ -2,6 +2,16 @@
 
 ## Git 명령어
 
+### GitHub에 코드를 올리는 과정
+
+1. git init
+2. 코드 작성
+3. git add
+4. git commit -m "message"
+5. GitHub 레포지토리 생성
+6. git remote add origin [GitHub Repository URL]
+7. git push origin master
+
 ### init
 
 git initialize
