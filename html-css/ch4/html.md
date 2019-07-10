@@ -232,8 +232,8 @@ https://heropy.blog/2019/05/26/html-elements/
    1. Underline
    2. 밑줄이 있는 글자를 설정
    3. 순수하게 꾸미는 용도의 요소로 사용
-   4. <a>와 헷갈릴 수 있는 위치에서 사용하지 않도록 주의
-   5. <span style="text-decoration: underline;">을 활용할 수 있으면 사용 권장 X
+   4. a tag와 헷갈릴 수 있는 위치에서 사용하지 않도록 주의
+   5. <span style="text-decoration: underline;" .>을 활용할 수 있으면 사용 권장 X
 8. code
    1. Inline Code
    2. 컴퓨터 코드 범위를 설정
@@ -266,6 +266,7 @@ https://heropy.blog/2019/05/26/html-elements/
    3. 속성
       1. cite - URI - 리소스의 URI
       2. datetime - Date - 변경시간
+      3. 
 2. ins
    1. insert
    2. 새로 추가된(변경된) 텍스트의 범위를 지정
