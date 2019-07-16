@@ -689,6 +689,8 @@ superheroes.forEach((hero) => {
 
 ### map
 
+배열 매핑
+
 ```javascript
 const array = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -701,9 +703,12 @@ console.log(squared);
 
 const square = n => n * n;
 const squared_arr = array.map(square);
-const squared_arr = array.map(n => n * n);
+const squared = array.map(n => n * n);
+console.log(squared_arr);
 console.log(squared);
 ```
+
+객체로 이루어진 배열을 매핑할 경우
 
 ```javascript
 const items = [
@@ -723,6 +728,8 @@ console.log(texts);
 
 ### indexOf
 
+배열 내의 값의 인덱스를 구할 때 사용한다.
+
 ```javascript
 const superheroes = ['아이언맨', '캡틴 아메리카', '토르', '닥터 스트레인지'];
 const index = superheroes.indexOf('토르');
@@ -731,7 +738,7 @@ console.log(index);
 
 ### findIndex
 
-배열 안에 있는 값이 객체일 경우 
+배열 안에 있는 값이 객체이거나 특수한 조건의 값을 찾을 경우 사용한다.
 
 ```javascript
 const todos = [
@@ -763,7 +770,7 @@ console.log(index); // 2
 
 ### find
 
-찾아낸 값 자체를 반환합니다.
+찾아낸 값 자체(원소)를 반환한다.
 
 ```javascript
 const todo = todos.find(todo => todo.id === 3);
@@ -772,8 +779,7 @@ console.log(todo);
 
 ### filter
 
-filter 함수에 넣는 파라미터는 조건을 검사하는 함수를 넣는다.
-
+filter 함수에 넣는 파라미터는 조건을 검사하는 함수를 넣는다. 필터링.
 
 ```javascript
 const tasksNotDone = todos.filter(todo => todo.done === false);
@@ -783,19 +789,21 @@ console.log(tasksNotDone);
 
 ### splice
 
-splice 는 배열에서 특정 항목을 제거할 때 사용합니다.
+splice 는 배열에서 특정 항목을 제거할 때 사용한다.
+splice(index, delete_num);
 
 ```javascript
 const numbers = [10, 20, 30, 40];
 const index = numbers.indexOf(30);
-numbers.splice(index, 1);
+const spliced = numbers.splice(index, 2);
+console.log(spliced);
 console.log(numbers);
 ```
 
 ### slice
 
 slice는 배열에서 특정 항목을 제거하지만 기존의 배열은 건들이지 않는다.
-
+slice(index, sliced_num);
 
 ```javascript
 const numbers = [10, 20, 30, 40];
@@ -805,7 +813,7 @@ console.log(sliced); // [10, 20]
 console.log(numbers); // [10, 20, 30, 40]
 ```
 
-### shift
+### shift(<-> unshift)
 
 shift는 첫번째 원소를 배열에서 추출한다. (추출과정에서 배열에서 해당 원소는 삭제됨)
 
@@ -814,7 +822,7 @@ const numbers = [10, 20, 30, 40];
 const value = numbers.shift();
 ```
 
-### pop
+### pop(<-> push)
 
 pop은 배열의 마지막 항목을 추출한다.
 
@@ -823,9 +831,9 @@ const numbers = [10, 20, 30, 40];
 const value = numbers.pop();
 ```
 
-### unshift
+### unshift(<-> shift)
 
-배열의 맨 앞에 새 원소를 추가합니다.
+배열의 맨 앞에 새 원소를 추가한다.
 
 ```javascript
 const numbers = [10, 20, 30, 40];
@@ -834,18 +842,20 @@ numbers.unshift(5);
 
 ### concat
 
-여러개의 배열을 하나의 배열로 합쳐줍니다.
-arr1 과 arr2 에 변화를 주지 않습니다.
+여러개의 배열을 하나의 배열로 합쳐준다.
+arr1 과 arr2 에 변화를 주지 않는다.
 
 ```javascript
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const concated = arr1.concat(arr2);
+const concated_1 = [...arr1, ...arr2];
 ```
 
 ### join
 
-join 은 배열 안의 값들을 문자열 형태로 합쳐줍니다.
+join 은 배열 안의 값들을 문자열 형태로 합쳐준다.
+join(seperator);
 
 ```javascript
 const array = [1, 2, 3, 4, 5];
@@ -856,19 +866,42 @@ console.log(array.join(', ')); // 1, 2, 3, 4, 5
 
 ### reduce
 
-reduce(, 초깃값)
+reduce(accumulater, 초깃값);
+reduce(accumulater, 초깃값, index, array);
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
 
-let sum = 0;
+const sum = 0;
 numbers.forEach(n => {
   sum += n;
 });
 
-let sum = array.reduce((accumulator, current) => accumulator + current, 0);
+const sum = array.reduce((accumulator, current) => accumulator + current, 0);
+
+const avg = array.reduce((accumulator, current, index, array) => {
+    if (index === array.length - 1) {
+        return (accumulator + current) / array.length;
+    }
+    return accumulator + current;
+}, 0);
 
 console.log(sum);
+console.log(avg);
+```
+
+```javascript
+const alphabets = ['a', 'a', 'a', 'b', 'c', 'c', 'd', 'e'];
+const counts = alphabets.reduce((acc, current) => {
+    if(acc[current]) {
+        acc[current] += 1;
+    } else {
+        acc[current] = 1;
+    }
+    return acc;
+}, {});
+
+console.log(counts)
 ```
 
 ## Quiz
