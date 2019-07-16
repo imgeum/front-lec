@@ -4,23 +4,25 @@
 
 ```javascript
 function print(person) {
+  /*
   if (person === undefined || person === null) {
     console.log('person이 없네요');
     return;
   }
+  */
 
-  /*
   if (!person) {
     console.log('person이 없네요');
     return;
   }
-  */
 
   console.log(person.name);
 }
 
 const person = null;
 print(person);
+print(null);
+print(undefined);
 ```
 
 ## Falsy
@@ -33,4 +35,11 @@ console.log(!null);
 console.log(!0);
 console.log(!'');
 console.log(!NaN);
+console.log(!false);
+
+const value = 1 / 'asdf';
+console.log(value); // NAN
+
+const value = !!undefined;
+console.log(value);
 ```

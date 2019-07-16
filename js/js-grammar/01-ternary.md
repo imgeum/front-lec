@@ -1,5 +1,6 @@
 # 삼항 연산자
 
+condition ? true : false
 ES6 문법은 아니다.
 
 ## Usage 1
