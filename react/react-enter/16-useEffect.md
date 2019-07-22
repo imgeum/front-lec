@@ -30,3 +30,7 @@ useEffect(() => {
 
 * setInterval, setTimeout 을 사용하여 등록한 작업들 clear 하기 (clearInterval, clearTimeout)
 * 라이브러리 인스턴스 제거
+
+## deps에 특정 값 넣기
+
+deps에 특정 값을 넣게 된다면, 컴포넌트가 처음 마운트 될 때에도 
